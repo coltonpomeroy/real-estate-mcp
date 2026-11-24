@@ -1,0 +1,47 @@
+{
+  "name": "real-estate-mcp",
+  "version": "1.0.0",
+  "description": "MCP server with real estate calculation tools for AI assistants",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Colton Pomeroy",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "real-estate-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coltonpomeroy/real-estate-mcp.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "npm run build && vitest run",
+    "start": "node dist/index.js",
+    "prepublishOnly": "node -e \"console.error('real-estate-mcp is not published to npm'); process.exit(1)\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/node": "^2.1.2",
+    "@modelcontextprotocol/server": "^2.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@modelcontextprotocol/client": "^2.4.0",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.74.0",
+    "vitest": "^5.1.1"
+  }
+}
